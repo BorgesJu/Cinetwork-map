@@ -30,6 +30,12 @@ WA.onInit().then(() => {
     });
 
     WA.room.onLeaveLayer('poolZone').subscribe(closePopup);
+	
+    WA.room.onEnterLayer('mazeZone').subscribe(() => {
+        currentPopup = WA.ui.openPopup("mazePopup", "It's aMAZE-ing how this place is overlooked!", []);
+    });
+
+    WA.room.onLeaveLayer('mazeZone').subscribe(closePopup);
 
     // The line below bootstraps the Scripting API Extra library that adds a number of advanced properties/features to WorkAdventure
     bootstrapExtra().then(() => {
