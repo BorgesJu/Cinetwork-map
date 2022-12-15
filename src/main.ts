@@ -20,7 +20,7 @@ WA.onInit().then(() => {
     WA.room.onLeaveLayer('clockZone').subscribe(closePopup);
 
     WA.room.onEnterLayer('beachZone').subscribe(() => {
-        currentPopup = WA.ui.openPopup("beachPopup", "Welcome to the Benchley beach!", []);
+        currentPopup = WA.ui.openPopup("beachPopup", "Welcome to the Benchley bay!", []);
     });
 
     WA.room.onLeaveLayer('beachZone').subscribe(closePopup);
