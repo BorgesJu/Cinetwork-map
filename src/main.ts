@@ -6,23 +6,6 @@ console.log('Script started successfully');
 
 let currentPopup: any = undefined;
 
-
-// Array of messages to display in the multipage popup
-const messages = [
-  "Welcome to Cinetworld! I'm Ju!",
-  "Here you can collaborate and interact with other users...",
-  "Approach a user to have a private chat with him/her...",
-  "Enter in one of the meeting room to participate to a videochat",
-  "You can go to the special silent zones to forbid any interaction with you...",
-  "Have a good time in Cinetworld, and feel free to discover its hidden mysteries..."
-];
-
-// Counter variable to keep track of the current message being displayed
-let counter = 0;
-
-
-
-
 // Waiting for the API to be ready
 WA.onInit().then(() => {
     console.log('Scripting API ready');
@@ -53,35 +36,6 @@ WA.onInit().then(() => {
     });
 
     WA.room.onLeaveLayer('mazeZone').subscribe(closePopup);
-	
-	
-	WA.room.onEnterLayer('welcomeZone').subscribe(() => {
-	currentPopup = WA.ui.openPopup("welcomePopup", messages[counter], [
-	  {
-		label: "Previous",
-		onClick: () => {
-		  if (counter > 0) {
-			counter--;
-			currentPopup.update(messages[counter]);
-		  }
-		}
-	  },
-	  {
-		label: "Next",
-		onClick: () => {
-		  if (counter < messages.length - 1) {
-			counter++;
-			currentPopup.update(messages[counter]);
-		  }
-		}
-	  }
-	]);
-	});
-
-	WA.room.onLeaveLayer('welcomeZone').subscribe(closePopup);
-	
-	
-	
 
     // The line below bootstraps the Scripting API Extra library that adds a number of advanced properties/features to WorkAdventure
     bootstrapExtra().then(() => {
