@@ -1,1 +1,1 @@
-# Base Workadventure map for Cintework
+# Base Workadventure map for Cinetwork
