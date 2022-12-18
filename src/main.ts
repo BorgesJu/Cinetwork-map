@@ -43,6 +43,7 @@ WA.onInit().then(() => {
     WA.room.onLeaveLayer('mazeZone').subscribe(closePopup);
 
 
+	let currentPopup: number = 0;
 
 
 	const popupData = [  {    title: "Welcome to Cinetworld!",    message: "I'm Ju!",    buttons: [{ label: "Next", callback: nextPopup }]
