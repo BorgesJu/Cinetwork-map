@@ -42,17 +42,8 @@ WA.onInit().then(() => {
 
     WA.room.onLeaveLayer('mazeZone').subscribe(closePopup);
 
-	const messages = [
-	  "Welcome to Cinetworld! I'm Ju!",
-	  "Here you can collaborate and interact with other users...",
-	  "Approach a user to have a private chat with him/her...",
-	  "Enter in one of the meeting room to participate to a videochat",
-	  "You can go to the special silent zones to forbid any interaction with you...",
-	  "Have a good time in Cinetworld, and feel free to discover its hidden mysteries..."
-	];
-
     WA.room.onEnterLayer('welcomeZone').subscribe(() => {
-        currentPopup = WA.ui.openPopup("welcomePopup", "Welcome to Cinetworld! I'm Ju!. Here you can collaborate and interact with other users... Approach a user to have a private chat with him/her...  Enter in one of the meeting room to participate to a videochat. You can go to the special silent zones to forbid any interaction with you... Have a good time in Cinetworld, and feel free to discover its hidden mysteries..."[]);
+        currentPopup = WA.ui.openPopup("welcomePopup", "Welcome to Cinetworld! I'm Ju!. Here you can collaborate and interact with other users... Approach a user to have a private chat with him/her...  Enter in one of the meeting room to participate to a videochat. You can go to the special silent zones to forbid any interaction with you... Have a good time in Cinetworld, and feel free to discover its hidden mysteries...", []);
     });
 
     WA.room.onLeaveLayer('welcomeZone').subscribe(closePopup);
