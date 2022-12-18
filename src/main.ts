@@ -68,8 +68,8 @@ WA.onInit().then(() => {
 	WA.room.onEnterLayer('welcomeZone').subscribe(() => {
 		currentPopup = WA.ui.openPopup("welcomePopup", popupContent[currentPopupIndex].title, [
 			{
-				type: 'primary',
 				label: 'Next',
+				type: 'primary',
 				action: () => {
 					// Increment the current popup index
 					currentPopupIndex++;
@@ -85,8 +85,8 @@ WA.onInit().then(() => {
 				}
 			},
 			{
-				type: 'secondary',
 				label: 'Previous',
+				type: 'secondary',
 				action: () => {
 					// Decrement the current popup index
 					currentPopupIndex--;
@@ -103,8 +103,6 @@ WA.onInit().then(() => {
 			}
 		]);
 	});
-
-
 
 
 
