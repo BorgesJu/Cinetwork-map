@@ -6,19 +6,6 @@ console.log('Script started successfully');
 
 let currentPopup: any = undefined;
 
-
-
-
-
-
-const messages = [
-  "This is message 1",
-  "This is message 2",
-  "This is message 3",
-];
-
-let messageIndex = 0;
-
 // Waiting for the API to be ready
 WA.onInit().then(() => {
     console.log('Scripting API ready');
@@ -56,16 +43,31 @@ WA.onInit().then(() => {
     WA.room.onLeaveLayer('mazeZone').subscribe(closePopup);
 
 
+
+
+
+	const messages = [
+	  "This is message 1",
+	  "This is message 2",
+	  "This is message 3",
+	];
+
+	let messageIndex = 0;
+
+
+
+
 	WA.room.onEnterLayer('welcomeZone').subscribe(() => {
 	  currentPopup = WA.ui.openPopup("welcomePopup", messages[messageIndex], [
 		{
 		  label: "Previous",
 		  className: "primary",
 		  callback: (popup) => {
-			if (messageIndex > 0) {
-			  messageIndex--;
-			  popup.close();
-			  currentPopup = WA.ui.openPopup("welcomePopup", messages[messageIndex], []);
+			  if (messageIndex > 0) {
+				messageIndex--;
+				currentPopup = popup;
+				popup.close();
+				currentPopup = WA.ui.openPopup("welcomePopup", messages[messageIndex], []);
 			}
 		  },
 		},
