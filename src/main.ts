@@ -69,8 +69,8 @@ WA.onInit().then(() => {
 		currentPopup = WA.ui.openPopup("welcomePopup", popupContent[currentPopupIndex].title, [
 			{
 				label: 'Next',
-				type: 'primary',
-				action: () => {
+				className: 'primary',
+				callback: (popup: Popup) => {
 					// Increment the current popup index
 					currentPopupIndex++;
 					// If the index is out of bounds, set it to 0
@@ -78,7 +78,7 @@ WA.onInit().then(() => {
 						currentPopupIndex = 0;
 					}
 					// Update the popup content
-					currentPopup.update({
+					popup.update({
 						title: popupContent[currentPopupIndex].title,
 						content: popupContent[currentPopupIndex].content
 					});
@@ -86,8 +86,8 @@ WA.onInit().then(() => {
 			},
 			{
 				label: 'Previous',
-				type: 'secondary',
-				action: () => {
+				className: 'secondary',
+				callback: (popup: Popup) => {
 					// Decrement the current popup index
 					currentPopupIndex--;
 					// If the index is out of bounds, set it to the last element in the array
@@ -95,7 +95,7 @@ WA.onInit().then(() => {
 						currentPopupIndex = popupContent.length - 1;
 					}
 					// Update the popup content
-					currentPopup.update({
+					popup.update({
 						title: popupContent[currentPopupIndex].title,
 						content: popupContent[currentPopupIndex].content
 					});
@@ -103,6 +103,7 @@ WA.onInit().then(() => {
 			}
 		]);
 	});
+
 
 
 
