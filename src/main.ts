@@ -44,7 +44,7 @@ WA.onInit().then(() => {
 
 
 
-	let currentPopup = 0;
+	let currentPopup: Popup;
 	const popupData = [  {    title: "Welcome to Cinetworld!",    message: "I'm Ju!",    buttons: [{ label: "Next", callback: nextPopup }]
 	  },
 	  {
@@ -75,7 +75,7 @@ WA.onInit().then(() => {
 	  openPopup(currentPopup);
 	}
 
-	function openPopup(index) {
+	function openPopup(index: number) {
 	  const data = popupData[index];
 	  currentPopup = WA.ui.openPopup("welcomePopup", data.title, data.buttons);
 	}
@@ -86,8 +86,15 @@ WA.onInit().then(() => {
 
 	WA.room.onLeaveLayer('welcomeZone').subscribe(() => {
 	  currentPopup.close();
-	  currentPopup = 0;
+	  currentPopup = null;
 	});
+
+
+
+
+
+
+
 
 
 
