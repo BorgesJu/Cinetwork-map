@@ -55,11 +55,6 @@ WA.onInit().then(() => {
 	let messageIndex = 0;
 
 	WA.room.onEnterLayer('welcomeZone').subscribe(() => {
-	  currentPopup = WA.ui.openPopup("welcomePopup", messages[messageIndex], []);
-	});
-
-
-	WA.room.onEnterLayer('welcomeZone').subscribe(() => {
 	  currentPopup = WA.ui.openPopup("welcomePopup", messages[messageIndex], [
 		{
 		  label: "Previous",
