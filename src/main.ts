@@ -42,6 +42,50 @@ WA.onInit().then(() => {
 
     WA.room.onLeaveLayer('mazeZone').subscribe(closePopup);
 
+
+
+
+
+	const messages = [
+	  "This is message 1",
+	  "This is message 2",
+	  "This is message 3",
+	];
+
+	let messageIndex = 0;
+
+
+	WA.room.onEnterLayer('welcomeZone').subscribe(() => {
+	  currentPopup = WA.ui.openPopup("welcomePopup", messages[messageIndex], [
+		{
+		  label: "Previous",
+		  className: "primary",
+		  callback: (popup) => {
+			if (messageIndex > 0) {
+			  messageIndex--;
+			  popup.close();
+			  currentPopup = WA.ui.openPopup("welcomePopup", messages[messageIndex], []);
+			}
+		  },
+		},
+		{
+		  label: "Next",
+		  className: "primary",
+		  callback: (popup) => {
+			if (messageIndex < messages.length - 1) {
+			  messageIndex++;
+			  popup.close();
+			  currentPopup = WA.ui.openPopup("welcomePopup", messages[messageIndex], []);
+			}
+		  },
+		},
+	  ]);
+	});
+
+	WA.room.onLeaveLayer('welcomeZone').subscribe(closePopup);
+
+
+
     // The line below bootstraps the Scripting API Extra library that adds a number of advanced properties/features to WorkAdventure
     bootstrapExtra().then(() => {
         console.log('Scripting API Extra ready');
