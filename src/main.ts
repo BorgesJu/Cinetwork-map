@@ -43,10 +43,7 @@ WA.onInit().then(() => {
     WA.room.onLeaveLayer('mazeZone').subscribe(closePopup);
 
 
-	let currentPopup: number = 0;
-
-
-	const popupData = [  {    title: "Welcome to Cinetworld!",    message: "I'm Ju!",    buttons: [{ label: "Next", callback: nextPopup }]
+	const popupData = [{title: "Welcome to Cinetworld!", message: "I'm Ju!", buttons: [{ label: "Next", callback: nextPopup }]
 	  },
 	  {
 		title: "Second popup",
@@ -82,16 +79,14 @@ WA.onInit().then(() => {
 	}
 
 	WA.room.onEnterLayer('welcomeZone').subscribe(() => {
+	  currentPopup = 0;
 	  openPopup(currentPopup);
 	});
 
 	WA.room.onLeaveLayer('welcomeZone').subscribe(() => {
 	  currentPopup.close();
-	  currentPopup = null;
+	  currentPopup = undefined;
 	});
-
-
-
 
 
 
