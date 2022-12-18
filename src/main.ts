@@ -6,26 +6,6 @@ console.log('Script started successfully');
 
 let currentPopup: any = undefined;
 
-const popupContent = [
-  {
-    title: 'Popup 1',
-    content: 'This is the first popup.'
-  },
-  {
-    title: 'Popup 2',
-    content: 'This is the second popup.'
-  },
-  {
-    title: 'Popup 3',
-    content: 'This is the third popup.'
-  }
-];
-
-let currentPopupIndex = 0;
-
-
-
-
 // Waiting for the API to be ready
 WA.onInit().then(() => {
     console.log('Scripting API ready');
@@ -56,67 +36,11 @@ WA.onInit().then(() => {
     WA.room.onLeaveLayer('poolZone').subscribe(closePopup);
 	
 	
-	
     WA.room.onEnterLayer('mazeZone').subscribe(() => {
         currentPopup = WA.ui.openPopup("mazePopup", "It's aMAZE-ing how this place is overlooked!", []);
     });
 
     WA.room.onLeaveLayer('mazeZone').subscribe(closePopup);
-	
-
-
-	WA.room.onEnterLayer('welcomeZone').subscribe(() => {
-		currentPopup = WA.ui.openPopup("welcomePopup", popupContent[currentPopupIndex].title, [
-			{
-				label: 'Next',
-				className: 'primary',
-				callback: (popup) => {
-					// Increment the current popup index
-					currentPopupIndex++;
-					// If the index is out of bounds, set it to 0
-					if (currentPopupIndex >= popupContent.length) {
-						currentPopupIndex = 0;
-					}
-					// Update the popup content
-					popup.update({
-						title: popupContent[currentPopupIndex].title,
-						content: popupContent[currentPopupIndex].content
-					});
-				}
-			},
-			{
-				label: 'Previous',
-				className: 'secondary',
-				callback: (popup) => {
-					// Decrement the current popup index
-					currentPopupIndex--;
-					// If the index is out of bounds, set it to the last element in the array
-					if (currentPopupIndex < 0) {
-						currentPopupIndex = popupContent.length - 1;
-					}
-					// Update the popup content
-					popup.update({
-						title: popupContent[currentPopupIndex].title,
-						content: popupContent[currentPopupIndex].content
-					});
-				}
-			}
-		]);
-	});
-
-
-
-
-
-
-
-
-
-
-
-
-
-	
 
     // The line below bootstraps the Scripting API Extra library that adds a number of advanced properties/features to WorkAdventure
     bootstrapExtra().then(() => {
@@ -131,5 +55,73 @@ function closePopup(){
         currentPopup = undefined;
     }
 }
+
+
+
+let helloWorldPopup;
+
+const pages = [
+  { title: 'Page 1', content: 'This is page 1' },
+  { title: 'Page 2', content: 'This is page 2' },
+  { title: 'Page 3', content: 'This is page 3' },
+];
+
+let currentPageIndex = 0;
+
+// Open the popup when we enter a given zone
+WA.room.onEnterLayer("welcomeZone").subscribe(() => {
+    helloWorldPopup = WA.ui.openPopup("welcomePopup", pages[currentPageIndex].title, [
+        {
+            label: 'Previous',
+            className: 'secondary',
+            callback: (popup) => {
+              currentPageIndex--;
+              if (currentPageIndex < 0) {
+                currentPageIndex = pages.length - 1;
+              }
+              popup.update({
+                title: pages[currentPageIndex].title,
+                content: pages[currentPageIndex].content,
+              });
+            },
+        },
+        {
+            label: 'Next',
+            className: 'primary',
+            callback: (popup) => {
+              currentPageIndex++;
+              if (currentPageIndex >= pages.length) {
+                currentPageIndex = 0;
+              }
+              popup.update({
+                title: pages[currentPageIndex].title,
+                content: pages[currentPageIndex].content,
+              });
+            },
+        },
+        {
+            label: "Close",
+            className: "primary",
+            callback: (popup) => {
+                // Close the popup when the "Close" button is pressed.
+                popup.close();
+            }
+        }
+    ]);
+});
+
+// Close the popup when we leave the zone.
+WA.room.onLeaveLayer("myZone").subscribe(() => {
+    helloWorldPopup.close();
+});
+
+
+
+
+
+
+
+
+
 
 export {};
