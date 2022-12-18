@@ -70,7 +70,7 @@ WA.onInit().then(() => {
 			{
 				label: 'Next',
 				className: 'primary',
-				callback: (popup: Popup) => {
+				callback: (popup) => {
 					// Increment the current popup index
 					currentPopupIndex++;
 					// If the index is out of bounds, set it to 0
@@ -87,7 +87,7 @@ WA.onInit().then(() => {
 			{
 				label: 'Previous',
 				className: 'secondary',
-				callback: (popup: Popup) => {
+				callback: (popup) => {
 					// Decrement the current popup index
 					currentPopupIndex--;
 					// If the index is out of bounds, set it to the last element in the array
