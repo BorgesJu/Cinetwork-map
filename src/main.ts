@@ -62,39 +62,24 @@ WA.onInit().then(() => {
 	WA.room.onEnterLayer('welcomeZone').subscribe(() => {
 	  currentPopup = WA.ui.openPopup("welcomePopup", messages[messageIndex], [
 		{
+		  label: "Previous",
+		  className: "primary",
+		  callback: (popup) => {
+			if (messageIndex > 0) {
+			  messageIndex--;
+			  popup.close();
+			  currentPopup = WA.ui.openPopup("welcomePopup", messages[messageIndex], []);
+			}
+		  },
+		},
+		{
 		  label: "Next",
 		  className: "primary",
 		  callback: (popup) => {
 			if (messageIndex < messages.length - 1) {
 			  messageIndex++;
-			  let buttons = [
-				{
-				  label: "Next",
-				  className: "primary",
-				  callback: (popup) => {
-					if (messageIndex < messages.length - 1) {
-					  messageIndex++;
-					  popup.close();
-					  currentPopup = WA.ui.openPopup("welcomePopup", messages[messageIndex], []);
-					}
-				  },
-				},
-			  ];
-			  if (messageIndex > 0) {
-				buttons.unshift({
-				  label: "Previous",
-				  className: "primary",
-				  callback: (popup) => {
-					if (messageIndex > 0) {
-					  messageIndex--;
-					  popup.close();
-					  currentPopup = WA.ui.openPopup("welcomePopup", messages[messageIndex], []);
-					}
-				  },
-				});
-			  }
 			  popup.close();
-			  currentPopup = WA.ui.openPopup("welcomePopup", messages[messageIndex], buttons);
+			  currentPopup = WA.ui.openPopup("welcomePopup", messages[messageIndex], []);
 			}
 		  },
 		},
