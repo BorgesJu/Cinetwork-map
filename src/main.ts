@@ -59,8 +59,8 @@ WA.onInit().then(() => {
 	});
 
 
-	WA.room.onEnterLayer('popupZone').subscribe(() => {
-	  currentPopup = WA.ui.openPopup("popupRectangle", messages[messageIndex], [
+	WA.room.onEnterLayer('welcomeZone').subscribe(() => {
+	  currentPopup = WA.ui.openPopup("welcomePopup", messages[messageIndex], [
 		{
 		  label: "Next",
 		  className: "primary",
@@ -75,7 +75,7 @@ WA.onInit().then(() => {
 					if (messageIndex < messages.length - 1) {
 					  messageIndex++;
 					  popup.close();
-					  currentPopup = WA.ui.openPopup("popupRectangle", messages[messageIndex], []);
+					  currentPopup = WA.ui.openPopup("welcomePopup", messages[messageIndex], []);
 					}
 				  },
 				},
@@ -88,13 +88,13 @@ WA.onInit().then(() => {
 					if (messageIndex > 0) {
 					  messageIndex--;
 					  popup.close();
-					  currentPopup = WA.ui.openPopup("popupRectangle", messages[messageIndex], []);
+					  currentPopup = WA.ui.openPopup("welcomePopup", messages[messageIndex], []);
 					}
 				  },
 				});
 			  }
 			  popup.close();
-			  currentPopup = WA.ui.openPopup("popupRectangle", messages[messageIndex], buttons);
+			  currentPopup = WA.ui.openPopup("welcomePopup", messages[messageIndex], buttons);
 			}
 		  },
 		},
