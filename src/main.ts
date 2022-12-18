@@ -44,7 +44,7 @@ WA.onInit().then(() => {
 
 
 
-	let currentPopup: Popup;
+
 	const popupData = [  {    title: "Welcome to Cinetworld!",    message: "I'm Ju!",    buttons: [{ label: "Next", callback: nextPopup }]
 	  },
 	  {
