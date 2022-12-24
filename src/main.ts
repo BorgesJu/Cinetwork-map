@@ -104,7 +104,7 @@ WA.onInit()
           { label: "Previous", callback: previousTutorialPopup },
           { 
             label: "Close",  
-            callback:  (popup) => {
+            callback:  (popup: any) => {
               currentPopup = undefined
               popup.close();
             }
