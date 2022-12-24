@@ -62,17 +62,22 @@ WA.onInit().then(() => {
 	];
 
 	function nextTutorialPopup() {
-	  openTutorialPopup(currentTutorialPopupIndex++);
+		currentTutorialPopupIndex++
+	  	openTutorialPopup(currentTutorialPopupIndex);
 	}
 
 	function previousTutorialPopup() {
-	  openTutorialPopup(currentTutorialPopupIndex--);
+		currentTutorialPopupIndex--
+	  	openTutorialPopup(currentTutorialPopupIndex);
 	}
 	
 	const clamp = (num: number, min: number, max: number) => Math.min(Math.max(num, min), max);
 	function openTutorialPopup(index: number) {
 	  index = clamp(index, 0, tutorialPopupData.length - 1)
 	  const data = tutorialPopupData[index]
+	  if (currentPopup) {
+		currentPopup.close()	  
+	  }
 	  currentPopup = WA.ui.openPopup("welcomePopup", data.title, data.buttons)
 	}
 
