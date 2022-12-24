@@ -102,7 +102,13 @@ WA.onInit()
         message: "seventh",
         buttons: [
           { label: "Previous", callback: previousTutorialPopup },
-          { label: "Close", callback: closePopup }
+          { 
+            label: "Close",  
+            callback:  (popup) => {
+              currentPopup = undefined
+              popup.close();
+            }
+          }
         ],
       },       
     ];
