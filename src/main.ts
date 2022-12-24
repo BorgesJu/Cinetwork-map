@@ -42,61 +42,48 @@ WA.onInit().then(() => {
 
     WA.room.onLeaveLayer('mazeZone').subscribe(closePopup);
 
-
-	const popupData = [{title: "Welcome to Cinetworld!", message: "I'm Ju!", buttons: [{ label: "Next", callback: nextPopup }]
+	const currentTutorialPopupIndex: number = 0
+	const tutorialPopupData = [
+	  {
+		  title: "Welcome to Cinetworld!", 
+		  message: "I'm Ju!", 
+		  buttons: [{ label: "Next", callback: nextTutorialPopup }]
 	  },
 	  {
 		title: "Second popup",
 		message: "This is the second popup",
-		buttons: [{ label: "Previous", callback: previousPopup }, { label: "Next", callback: nextPopup }]
+		buttons: [{ label: "Previous", callback: previousTutorialPopup }, { label: "Next", callback: nextTutorialPopup }]
 	  },
 	  {
 		title: "Third popup",
 		message: "This is the third popup",
-		buttons: [{ label: "Previous", callback: previousPopup }]
+		buttons: [{ label: "Previous", callback: previousTutorialPopup }]
 	  }
 	];
 
-	function nextPopup() {
-		console.log('1')
-		console.log(currentPopup)
-		
-		console.log('2')
-		console.log(popupData)
-	  if (currentPopup + 1 >= popupData.length) {
-		return;
-	  }
-	  currentPopup += 1;
-	  openPopup(currentPopup);
+	function nextTutorialPopup() {
+	  openTutorialPopup(currentTutorialPopupIndex++);
 	}
 
-	function previousPopup() {
-	  if (currentPopup - 1 < 0) {
-		return;
-	  }
-	  currentPopup -= 1;
-	  openPopup(currentPopup);
+	function previousTutorialPopup() {
+	  openTutorialPopup(currentTutorialPopupIndex--);
 	}
-
-	function openPopup(index: number) {
-	  const data = popupData[index];
-	  currentPopup = WA.ui.openPopup("welcomePopup", data.title, data.buttons);
+	
+	const clamp = (num, min, max) => Math.min(Math.max(num, min), max);
+	function openTutorialPopup(index: number) {
+	  index = clamp(index, 0, tutorialPopupData.length - 1)
+	  const data = tutorialPopupData[index]
+	  currentPopup = WA.ui.openPopup("welcomePopup", data.title, data.buttons)
 	}
 
 	WA.room.onEnterLayer('welcomeZone').subscribe(() => {
-	  currentPopup = 0;
-	  openPopup(currentPopup);
+	  openPopup(currentTutorialPopupIndex)
 	});
 
 	WA.room.onLeaveLayer('welcomeZone').subscribe(() => {
-	  currentPopup.close();
-	  currentPopup = undefined;
+	  currentPopup.close()
+	  currentPopup = undefined
 	});
-
-
-
-
-
 
 
     // The line below bootstraps the Scripting API Extra library that adds a number of advanced properties/features to WorkAdventure
