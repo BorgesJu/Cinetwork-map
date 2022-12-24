@@ -140,6 +140,7 @@ WA.onInit()
     WA.room.onLeaveLayer("welcomeZone").subscribe(() => {
       currentPopup.close();
       currentPopup = undefined;
+      currentTutorialPopupIndex = 0;
     });
 
     // The line below bootstraps the Scripting API Extra library that adds a number of advanced properties/features to WorkAdventure
