@@ -76,20 +76,26 @@ WA.onInit()
       {
         title: "Approach a user to chat with her/him, or to start a video chat...",
         message: "fourth",
+        buttons: [        
           { label: "Previous", callback: previousTutorialPopup },
           { label: "Next", callback: nextTutorialPopup },
+        ],  
       },
       {
         title: "Go to one of the dedicated spaces to start a multiparty conference...",
         message: "fifth",
+        buttons: [           
           { label: "Previous", callback: previousTutorialPopup },
           { label: "Next", callback: nextTutorialPopup },
+        ],            
       },
       {
         title: "You can go to a quiet space if you do not wish to be disturbed...",
         message: "sixth",
+        buttons: [            
           { label: "Previous", callback: previousTutorialPopup },
           { label: "Next", callback: nextTutorialPopup },
+        ],          
       },
       {
         title: "Enjoy your visit and discover Cinetworld and its many secrets!",
