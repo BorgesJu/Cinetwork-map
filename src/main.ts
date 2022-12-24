@@ -58,6 +58,11 @@ WA.onInit().then(() => {
 	];
 
 	function nextPopup() {
+		console.log('1')
+		console.log(currentPopup)
+		
+		console.log('2')
+		console.log(popupData)
 	  if (currentPopup + 1 >= popupData.length) {
 		return;
 	  }
