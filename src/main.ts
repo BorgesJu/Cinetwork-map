@@ -66,7 +66,7 @@ WA.onInit()
         ],
       },
       {
-        title: "where you can interact with your connected colleagues in a natural and fun way...",
+        title: "You can interact with your colleagues in a natural and fun way...",
         message: "Third",
         buttons: [
           { label: "Previous", callback: previousTutorialPopup },
@@ -80,13 +80,13 @@ WA.onInit()
           { label: "Next", callback: nextTutorialPopup },
       },
       {
-        title: "You can go to one of the dedicated spaces to start a multiparty conference...",
+        title: "Go to one of the dedicated spaces to start a multiparty conference...",
         message: "fifth",
           { label: "Previous", callback: previousTutorialPopup },
           { label: "Next", callback: nextTutorialPopup },
       },
       {
-        title: "You can finally go to one of the quiet spaces if you do not wish to be disturbed...",
+        title: "You can go to a quiet space if you do not wish to be disturbed...",
         message: "sixth",
           { label: "Previous", callback: previousTutorialPopup },
           { label: "Next", callback: nextTutorialPopup },
