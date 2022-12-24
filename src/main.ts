@@ -58,7 +58,7 @@ WA.onInit()
         buttons: [{ label: "Next", callback: nextTutorialPopup }],
       },
       {
-        title: "Cinetworld is a friendly professional place where you can interact with your connected colleagues in a natural and fun way...",
+        title: "Cinetworld is a friendly professional place...",
         message: "second",
         buttons: [
           { label: "Previous", callback: previousTutorialPopup },
@@ -66,19 +66,30 @@ WA.onInit()
         ],
       },
       {
+        title: "where you can interact with your connected colleagues in a natural and fun way...",
+        message: "Third",
+        buttons: [
+          { label: "Previous", callback: previousTutorialPopup },
+          { label: "Next", callback: nextTutorialPopup },
+        ],
+      },      
+      {
         title: "Approach a user to chat with her/him, or to start a video chat...",
         message: "fourth",
-        buttons: [{ label: "Previous", callback: previousTutorialPopup }],
+          { label: "Previous", callback: previousTutorialPopup },
+          { label: "Next", callback: nextTutorialPopup },
       },
       {
         title: "You can go to one of the dedicated spaces to start a multiparty conference...",
         message: "fifth",
-        buttons: [{ label: "Previous", callback: previousTutorialPopup }],
+          { label: "Previous", callback: previousTutorialPopup },
+          { label: "Next", callback: nextTutorialPopup },
       },
       {
         title: "You can finally go to one of the quiet spaces if you do not wish to be disturbed...",
         message: "sixth",
-        buttons: [{ label: "Previous", callback: previousTutorialPopup }],
+          { label: "Previous", callback: previousTutorialPopup },
+          { label: "Next", callback: nextTutorialPopup },
       },
       {
         title: "Enjoy your visit and discover Cinetworld and its many secrets!",
