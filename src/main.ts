@@ -53,23 +53,38 @@ WA.onInit()
     let currentTutorialPopupIndex: number = 0;
     const tutorialPopupData = [
       {
-        title: "Welcome to Cinetworld!",
-        message: "I'm Ju!",
+        title: "Welcome to Cinetworld! I'm Ju and I'm here to guide you...",
+        message: "first",
         buttons: [{ label: "Next", callback: nextTutorialPopup }],
       },
       {
-        title: "Second popup",
-        message: "This is the second popup",
+        title: "Cinetworld is a friendly professional place where you can interact with your connected colleagues in a natural and fun way...",
+        message: "second",
         buttons: [
           { label: "Previous", callback: previousTutorialPopup },
           { label: "Next", callback: nextTutorialPopup },
         ],
       },
       {
-        title: "Third popup",
-        message: "This is the third popup",
+        title: "Approach a user to chat with her/him, or to start a video chat...",
+        message: "fourth",
         buttons: [{ label: "Previous", callback: previousTutorialPopup }],
       },
+      {
+        title: "You can go to one of the dedicated spaces to start a multiparty conference...",
+        message: "fifth",
+        buttons: [{ label: "Previous", callback: previousTutorialPopup }],
+      },
+      {
+        title: "You can finally go to one of the quiet spaces if you do not wish to be disturbed...",
+        message: "sixth",
+        buttons: [{ label: "Previous", callback: previousTutorialPopup }],
+      },
+      {
+        title: "Enjoy your visit and discover Cinetworld and its many secrets!",
+        message: "seventh",
+        buttons: [{ label: "Previous", callback: previousTutorialPopup }],
+      },       
     ];
 
     function nextTutorialPopup() {
