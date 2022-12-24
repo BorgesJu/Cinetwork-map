@@ -42,7 +42,7 @@ WA.onInit().then(() => {
 
     WA.room.onLeaveLayer('mazeZone').subscribe(closePopup);
 
-	const currentTutorialPopupIndex: number = 0
+	let currentTutorialPopupIndex: number = 0
 	const tutorialPopupData = [
 	  {
 		  title: "Welcome to Cinetworld!", 
@@ -69,7 +69,7 @@ WA.onInit().then(() => {
 	  openTutorialPopup(currentTutorialPopupIndex--);
 	}
 	
-	const clamp = (num, min, max) => Math.min(Math.max(num, min), max);
+	const clamp = (num: number, min: number, max: number) => Math.min(Math.max(num, min), max);
 	function openTutorialPopup(index: number) {
 	  index = clamp(index, 0, tutorialPopupData.length - 1)
 	  const data = tutorialPopupData[index]
@@ -77,7 +77,7 @@ WA.onInit().then(() => {
 	}
 
 	WA.room.onEnterLayer('welcomeZone').subscribe(() => {
-	  openPopup(currentTutorialPopupIndex)
+	  openTutorialPopup(currentTutorialPopupIndex)
 	});
 
 	WA.room.onLeaveLayer('welcomeZone').subscribe(() => {
