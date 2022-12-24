@@ -100,7 +100,10 @@ WA.onInit()
       {
         title: "Enjoy your visit and discover Cinetworld and its many secrets!",
         message: "seventh",
-        buttons: [{ label: "Previous", callback: previousTutorialPopup }],
+        buttons: [
+          { label: "Previous", callback: previousTutorialPopup },
+          { label: "Close", callback: closePopup }
+        ],
       },       
     ];
 
