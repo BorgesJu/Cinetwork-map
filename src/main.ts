@@ -63,11 +63,15 @@ WA.onInit().then(() => {
 
 	function nextTutorialPopup() {
 		currentTutorialPopupIndex++
+		console.log('next')
+		console.log(currentTutorialPopupIndex)
 	  	openTutorialPopup(currentTutorialPopupIndex);
 	}
 
 	function previousTutorialPopup() {
 		currentTutorialPopupIndex--
+		console.log('prev')
+		console.log(currentTutorialPopupIndex)
 	  	openTutorialPopup(currentTutorialPopupIndex);
 	}
 	
@@ -78,6 +82,9 @@ WA.onInit().then(() => {
 	  if (currentPopup) {
 		currentPopup.close()	  
 	  }
+		console.log('open')
+		console.log(index)
+		console.log(data)
 	  currentPopup = WA.ui.openPopup("welcomePopup", data.title, data.buttons)
 	}
 
